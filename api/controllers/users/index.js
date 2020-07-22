@@ -41,8 +41,18 @@ const newUser = (req, res) => {
         res.sendStatus(500);
     }
 };
+
 const updateUser = (req, res) => {
-    res.send("Actualizar usuario");
+	const id = req.params.id;
+
+	User.updateOne({_id:id}, req.body, function(err,result){
+		if (err) {
+			res.status(500).send("Imposible actualizar el registro");
+		} else {
+			res.status(200).send("Registro Actualizado");
+		}
+	});
+		
 };
 const deleteUser = (req, res) => {
     res.send("Borrar usuario");
