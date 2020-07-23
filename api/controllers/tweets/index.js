@@ -41,9 +41,11 @@ const newTweet = (req, res) => {
         res.sendStatus(500);
     }
 };
+
 const deleteTweet = (req, res) => {
     res.send("Borrar tweet");
 };
+
 const newComment = (req, res) => {
     const tweet = req.body.tweet;
     const comment = {
@@ -59,4 +61,20 @@ const newComment = (req, res) => {
     })
 };
 
-module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment};
+const deleteComment = (req, res) => {
+    let idTweet = req.body.idTweet;
+    let idComment = req.body.idComment;
+	
+	
+	Tweet.findByIdAndUpdate(idTweet,{ $pull: { 'comments': {  _id: idComment } } })
+	.then(response=>{
+        res.status(202).send('Comentario eliminado');
+    })
+    .catch(err=>{
+        res.status(500).send('Imposible eliminar comentario');
+    })
+	
+	
+};
+
+module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment, deleteComment};
