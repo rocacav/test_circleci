@@ -92,4 +92,37 @@ const lastTweets = (req, res) => {
 	}
 };
 
-module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment, deleteComment, lastTweets};
+const usersTopTweets = (req, res) => {
+	
+	const num = parseInt(req.params.count); 
+	
+	if(num > 0){
+		Tweet.aggregate(
+			[
+				{
+					$group: {
+						_id : "$user",
+						count: { $sum: 1 }
+					}
+				},
+				{ 
+					$sort: { 
+						count: -1 
+					} 
+				},
+				{ $limit : num }
+			],function(err, result) {
+				if (err) {
+					res.send(err);
+				} else {
+					res.json(result);
+				}
+			}
+		);
+	}else{
+		res.status(500).send('Limite invalido');
+	}
+		
+};
+
+module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment, deleteComment, lastTweets, usersTopTweets};
