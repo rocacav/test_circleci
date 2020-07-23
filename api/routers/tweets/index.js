@@ -11,5 +11,6 @@ router.route('/comment').post(controller.newComment);
 router.route('/:id').get(controller.getTweet);
 
 router.route('/comments').delete(controller.deleteComment);
+router.route('/lasts/:count').get(controller.lastTweets);
 
 module.exports = router;

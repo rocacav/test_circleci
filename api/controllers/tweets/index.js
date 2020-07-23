@@ -77,4 +77,19 @@ const deleteComment = (req, res) => {
 	
 };
 
-module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment, deleteComment};
+const lastTweets = (req, res) => {
+    
+	const num = parseInt(req.params.count); 
+	if(num > 0){
+		Tweet.find().sort({ _id: -1 }).limit(num).find(function(err, post) {
+			if(err){
+				return res.send(err);
+			}
+			return res.send(post);
+		});
+	}else{
+		res.status(500).send('Limite invalido');
+	}
+};
+
+module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment, deleteComment, lastTweets};
