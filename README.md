@@ -1,5 +1,139 @@
-APIRest
-
+<h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Taller_1_2_y_3_0"></a>Taller 1, 2 y 3</h1>
+<h1 class="code-line" data-line-start=2 data-line-end=3 ><a id="Tpicos_Especiales_2"></a>Tópicos Especiales</h1>
+<h3 class="code-line" data-line-start=4 data-line-end=5 ><a id="Integrantes_4"></a>Integrantes</h3>
+<blockquote>
+<p class="has-line-data" data-line-start="5" data-line-end="8">Karen Sampayo<br>
+Jose Narvaez<br>
+Roberto Campy</p>
+</blockquote>
+<h3 class="code-line" data-line-start=9 data-line-end=10 ><a id="Installation_9"></a>Installation</h3>
+<p class="has-line-data" data-line-start="10" data-line-end="12">para el taller 1 clona este repositorio<br>
+Clona el repositorio <a href="https://github.com/EstudianteUninorte/TallerNodejs">https://github.com/EstudianteUninorte/TallerNodejs</a></p>
+<p class="has-line-data" data-line-start="13" data-line-end="15">Para el taller 2 y 3 clona este repositorio<br>
+<a href="https://github.com/EstudianteUninorte/Taller-3">https://github.com/EstudianteUninorte/Taller-3</a></p>
+<p class="has-line-data" data-line-start="16" data-line-end="17">Instala las siguientes dependencias e inicia el servidor.</p>
+<pre><code class="has-line-data" data-line-start="19" data-line-end="24" class="language-sh">$ npm install
+$ npm install express
+$ npm install nodemon
+$ npm start
+</code></pre>
+<h1 class="code-line" data-line-start=25 data-line-end=26 ><a id="Mtodos_soportados_25"></a>Métodos soportados</h1>
+<h3 class="code-line" data-line-start=27 data-line-end=28 ><a id="Taller_1_27"></a>Taller 1</h3>
+<p class="has-line-data" data-line-start="29" data-line-end="30">Clona el repositorio <a href="https://github.com/EstudianteUninorte/TallerNodejs">https://github.com/EstudianteUninorte/TallerNodejs</a></p>
+<ul>
+<li class="has-line-data" data-line-start="31" data-line-end="34">
+<h4 class="code-line" data-line-start=31 data-line-end=32 ><a id="POST_users__Crear_nuevo_usuario_31"></a>POST /users : Crear nuevo usuario</h4>
+<pre><code>  Línea 23 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="34" data-line-end="37">
+<h4 class="code-line" data-line-start=34 data-line-end=35 ><a id="GET_usersid_Consultar_usuario_en_la_posicion_id_del_arreglo_34"></a>GET /users/:id :Consultar usuario en la posición id del arreglo</h4>
+<pre><code> Línea 309 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="37" data-line-end="40">
+<h4 class="code-line" data-line-start=37 data-line-end=38 ><a id="GET_users__Ver_todos_los_usuarios_37"></a>GET /users : Ver todos los usuarios</h4>
+<pre><code>  Línea 42 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="40" data-line-end="43">
+<h4 class="code-line" data-line-start=40 data-line-end=41 ><a id="GET_userslastnamelastname_Usuarios_del_apellido_consultado_40"></a>GET /users/lastname/:lastname: Usuarios del apellido consultado</h4>
+<pre><code>  Línea 95 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="43" data-line-end="46">
+<h4 class="code-line" data-line-start=43 data-line-end=44 ><a id="GET_usersgendergender_Usuarios_del_sexo_consultado_43"></a>GET /users/gender/:gender: Usuarios del sexo consultado</h4>
+<pre><code>  Línea 153 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="46" data-line-end="49">
+<h4 class="code-line" data-line-start=46 data-line-end=47 ><a id="GET_userstelephone_Usuarios_que_tienen_por_lo_menos_un_numero_de_telefono_46"></a>GET /users/telephone: Usuarios que tienen por lo menos un número de teléfono</h4>
+<pre><code>  Línea 211 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="49" data-line-end="52">
+<h4 class="code-line" data-line-start=49 data-line-end=50 ><a id="GET_usersbmiid_Indice_de_masa_corporal_BMI_del_usuario_en_la_posicion_id_49"></a>GET /users/bmi/:id: Índice de masa corporal BMI del usuario en la posición id</h4>
+<pre><code>  Línea 359 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="52" data-line-end="55">
+<h4 class="code-line" data-line-start=52 data-line-end=53 ><a id="GET_usersbmi_Nombre_e_indice_de_masa_corporal_BMI_de_todos_los_usuarios_que_tengan_talla_y_peso_registrado_52"></a>GET /users/bmi/: Nombre e índice de masa corporal BMI de todos los usuarios que tengan talla y peso registrado</h4>
+<pre><code>  Línea 269 en index.js
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="55" data-line-end="60">
+<h4 class="code-line" data-line-start=55 data-line-end=56 ><a id="DELETE_usersid_Eliminar_el_usuario_de_la_posicion_id_55"></a>DELETE /users/:id: Eliminar el usuario de la posición id</h4>
+<pre><code>  Línea 393 en index.js
+</code></pre>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=60 data-line-end=61 ><a id="Taller_2_60"></a>Taller 2</h3>
+<p class="has-line-data" data-line-start="61" data-line-end="62">Clona el repositorio <a href="https://github.com/EstudianteUninorte/Taller-3">https://github.com/EstudianteUninorte/Taller-3</a></p>
+<ul>
+<li class="has-line-data" data-line-start="63" data-line-end="68">
+<h4 class="code-line" data-line-start=63 data-line-end=64 ><a id="PUT_apiusersid__Actualizar_usuario_63"></a>PUT /api/users/:id - Actualizar usuario</h4>
+<p class="has-line-data" data-line-start="64" data-line-end="65">/api/controllers/users/index.js /</p>
+<pre><code>  Línea 95 - updateUser
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="68" data-line-end="73">
+<h4 class="code-line" data-line-start=68 data-line-end=69 ><a id="DELETE_apiusers__Borrar_usuario_68"></a>DELETE /api/users/ - Borrar usuario</h4>
+<p class="has-line-data" data-line-start="69" data-line-end="70">/api/controllers/users/index.js /</p>
+<pre><code>  Línea 108 - deleteUser
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="73" data-line-end="78">
+<h4 class="code-line" data-line-start=73 data-line-end=74 ><a id="DELETE_apitweets__Borrar_tweet_73"></a>DELETE /api/tweets/ - Borrar tweet</h4>
+<p class="has-line-data" data-line-start="74" data-line-end="75">/api/controllers/tweets/index.js</p>
+<pre><code>  Línea 49 - deleteTweet
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="78" data-line-end="83">
+<h4 class="code-line" data-line-start=78 data-line-end=79 ><a id="DELETE_apitweetscomments__Borrar_comentario_78"></a>DELETE /api/tweets/comments/ - Borrar comentario</h4>
+<p class="has-line-data" data-line-start="79" data-line-end="80">/api/controllers/tweets/index.js</p>
+<pre><code>  Línea 72 - deleteComment
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="83" data-line-end="88">
+<h4 class="code-line" data-line-start=83 data-line-end=84 ><a id="GET_apiuserstweetscount__Nmero_total_de_tweets_del_usuario_83"></a>GET /api/users/tweets/count - Número total de tweets del usuario</h4>
+<p class="has-line-data" data-line-start="84" data-line-end="85">/api/controllers/users/index.js</p>
+<pre><code>  Línea 127 - totalTweetsbyUser
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="88" data-line-end="93">
+<h4 class="code-line" data-line-start=88 data-line-end=89 ><a id="GET_apiusersidtweets__Lista_de_tweets_del_usuario_88"></a>GET /api/users/:id/tweets/ - Lista de tweets del usuario</h4>
+<p class="has-line-data" data-line-start="89" data-line-end="90">/api/controllers/users/index.js</p>
+<pre><code>  Línea 118 - getTweetsByUser
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="93" data-line-end="98">
+<h4 class="code-line" data-line-start=93 data-line-end=94 ><a id="GET_apitweetslastscount__Lista_de_ltimos_n_tweets_93"></a>GET /api/tweets/lasts/:count - Lista de últimos {n} tweets</h4>
+<p class="has-line-data" data-line-start="94" data-line-end="95">/api/controllers/tweets/index.js</p>
+<pre><code>  Línea 88 - lastTweets
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="98" data-line-end="103">
+<h4 class="code-line" data-line-start=98 data-line-end=99 ><a id="GET_apitweetsidcommentscount__Nmero_total_de_comentarios_de_un_tweet_98"></a>GET /api/tweets/:id/comments/count - Número total de comentarios de un tweet</h4>
+<p class="has-line-data" data-line-start="99" data-line-end="100">/api/controllers/tweets/index.js</p>
+<pre><code>  Línea 136 - totalCommentsTweet
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="103" data-line-end="109">
+<h4 class="code-line" data-line-start=103 data-line-end=104 ><a id="GET_apitweetstopcount__Lista_de_n_tweets_ms_comentados_103"></a>GET /api/tweets/top/:count - Lista de {n} tweets más comentados</h4>
+<p class="has-line-data" data-line-start="104" data-line-end="105">/api/controllers/tweets/index.js</p>
+<pre><code>  Línea 161 - commentsTopTweets
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="109" data-line-end="114">
+<h4 class="code-line" data-line-start=109 data-line-end=110 ><a id="GET_apitweetstopcommenterscount__Lista_de_n_usuarios_con_mayor_nmero_de_tweets_109"></a>GET /api/tweets/top/commenters/:count - Lista de {n} usuarios con mayor número de tweets</h4>
+<p class="has-line-data" data-line-start="110" data-line-end="111">/api/controllers/tweets/index.js</p>
+<pre><code>  Línea 103 - usersTopTweets
+</code></pre>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=114 data-line-end=115 ><a id="Taller_3_114"></a>Taller 3</h3>
+<ul>
+<li class="has-line-data" data-line-start="116" data-line-end="119">
 <h4 class="code-line" data-line-start=116 data-line-end=117 ><a id="1_Documentar_en_el_archivo_READMEmd_todos_los_metodos_soportados_de_la_API_incluyendo_los_dos_talleres_anteriores_116"></a>1. Documentar en el archivo <a href="http://README.md">README.md</a> todos los métodos soportados de la API; incluyendo los dos talleres anteriores.</h4>
 <pre><code>  https://github.com/EstudianteUninorte/Taller-3/blob/master/README.md
 </code></pre>
