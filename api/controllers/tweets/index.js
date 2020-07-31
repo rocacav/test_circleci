@@ -1,4 +1,7 @@
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 const Tweet = require('./../../models/tweets');
+
 const getTweets = (req, res) =>{
     Tweet
     .find({})
@@ -26,8 +29,9 @@ const getTweet = (req, res) => {
 const newTweet = (req, res) => {
     const tweet = {
         content: req.body.content,
-        user: req.body.user
+        user: req.userId
     };
+    
     if(tweet.content && tweet.user){
         const object = new Tweet(tweet);
         object.save()
@@ -43,7 +47,11 @@ const newTweet = (req, res) => {
 };
 
 const deleteTweet = (req, res) => {
-    res.send("Borrar tweet");
+ let idTweet = req.body.idTweet; 
+ Tweet.findByIdAndDelete(idTweet, (err, response) =>{
+ if(err) res.status(500).send('Imposible eliminar el tweet');
+ else res.status(202).send('Tweet eliminado');
+ });
 };
 
 const newComment = (req, res) => {
@@ -124,5 +132,71 @@ const usersTopTweets = (req, res) => {
 	}
 		
 };
+ 
+const totalCommentsTweet  = (req, res) =>{
+    const id = req.params.id;
+    
+     Tweet.aggregate([
+       
+		{ $match: { "_id": ObjectId(id) }},
+        { $project: { comments: 1} },
+        { $unwind: '$comments' }, 
+        { $group: { 
+               _id: "$_id" 
+             , count: { $sum: 1 } 
+           }
+        }
+		
+     ], function(err, topTopics) {
+         if(err){
+             return res.send(err);
+         }
+         return res.send(topTopics);
+     });
+	
+	
+	
+};
 
-module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment, deleteComment, lastTweets, usersTopTweets};
+const commentsTopTweets = (req, res) => {
+
+	const num = parseInt(req.params.count);
+
+	if (num > 0) {
+		Tweet.aggregate(
+			[
+				{
+					$unwind: "$comments"
+				},
+				{
+					$group: {
+						_id: "$_id",
+						content: { $first: "$content" },
+						countComments: { $sum: 1 }
+					}
+				},
+				{
+					$sort: {
+						countComments: -1
+					}
+				},
+				{
+					$limit: num
+				}
+			], function (err, result) {
+				if (err) {
+					res.send(err);
+				} else {
+					res.json(result);
+				}
+			}
+		);
+	} else {
+		res.status(500).send('Limite invalido');
+	}
+
+};
+
+
+module.exports = {getTweets, getTweet, newTweet, deleteTweet, newComment, deleteComment, lastTweets, usersTopTweets, totalCommentsTweet, commentsTopTweets};
+
